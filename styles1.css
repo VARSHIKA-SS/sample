@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Montserrat&display=swap');
+
+/* Root variables for high contrast colors */
+:root {
+  --bg-color: #121212;
+  --primary-color: #00ffd5; /* Neon cyan */
+  --secondary-color: #ff0055; /* Neon pink */
+  --text-color: #e0e0e0;
+  --button-bg: #222222;
+  --button-hover-bg: #00ffd5;
+  --button-hover-color: #121212;
+  --lap-bg: #333333;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+h1 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 3.5rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  letter-spacing: 4px;
+}
+
+.stopwatch {
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  border: 3px solid var(--primary-color);
+  border-radius: 15px;
+  width: 350px;
+  padding: 30px 40px;
+  box-shadow: 0 0 15px var(--primary-color);
+  text-align: center;
+}
+
+#display {
+  font-size: 4rem;
+  font-weight: 700;
+  font-family: 'Oswald', sans-serif;
+  color: var(--secondary-color);
+  letter-spacing: 5px;
+  margin-bottom: 30px;
+  user-select: none;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+button {
+  flex: 1;
+  margin: 0 8px;
+  background-color: var(--button-bg);
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 12px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+  box-shadow: 0 0 6px #000000a0 inset;
+}
+
+button:first-child {
+  margin-left: 0;
+}
+button:last-child {
+  margin-right: 0;
+}
+
+button:hover:not(:disabled) {
+  background-color: var(--button-hover-bg);
+  color: var(--button-hover-color);
+  box-shadow: 0 0 15px var(--primary-color);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+#laps {
+  max-height: 160px;
+  overflow-y: auto;
+  border-top: 2px solid var(--primary-color);
+  padding-top: 15px;
+  font-family: monospace;
+}
+
+#laps::-webkit-scrollbar {
+  width: 8px;
+}
+#laps::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);
+  border-radius: 20px;
+}
+
+.lap {
+  background-color: var(--lap-bg);
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: var(--text-color);
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.lap span {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .stopwatch {
+    width: 90vw;
+    padding: 25px 20px;
+  }
+  #display {
+    font-size: 3rem;
+  }
+  button {
+    font-size: 1rem;
+    padding: 10px 0;
+  }
+}
+
